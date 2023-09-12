@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import '../Components/todo.dart';
 import '../pages/add.dart';
+import 'package:provider/provider.dart';
+
 
 class TodoHome extends StatefulWidget {
   @override
@@ -8,42 +11,36 @@ class TodoHome extends StatefulWidget {
 }
 
 class _TodoHomeState extends State<TodoHome> { 
-  List<Todo> todos = [
-    Todo('test1'),
-    Todo('test2'),
-    Todo('test3'),
-    Todo('test4'),
-    Todo('test5'),
-    Todo('test6'),
-    Todo('test7'),
-    Todo('test8'),
-    Todo('test9'),
-    Todo('test10'),
-    Todo('test11'),
-    Todo('test12'),
-    Todo('test13'),
-    Todo('test14'),
-    Todo('test15'),
-    Todo('test16'),
-    Todo('test17'),
-    Todo('test18'),
-    Todo('test19'),
-    Todo('test20'),
-    Todo('test21'),
-    Todo('test22'),
-    Todo('test23'),
-  ];
+
+  String todoFilter = 'all';
+
+  List<Todo> filteredTodos() {
+    final todoNotifier = Provider.of<TodoNotifier>(context);
+
+    if (todoFilter == 'done') {
+      return todoNotifier.todos.where((todo) => todo.isChecked).toList();
+    } else if (todoFilter == 'undone') {
+      return todoNotifier.todos.where((todo) => !todo.isChecked).toList();
+    } else {
+      // Default: show all todos
+      return todoNotifier.todos;
+    }
+  }
+
 
   void add(String name) {
-    setState(() {
-      todos.add(Todo(name));
-    });
+  final todoNotifier = Provider.of<TodoNotifier>(context, listen: false);
+  todoNotifier.addTodo(name);
   }
 
   void removeTodo(Todo todo) {
-    setState(() {
-      todos.remove(todo);
-    });
+  final todoNotifier = Provider.of<TodoNotifier>(context, listen: false);
+  todoNotifier.removeTodo(todo);
+  }
+
+  void toggleTodoState(Todo todo) {
+  final todoNotifier = Provider.of<TodoNotifier>(context, listen: false);
+  todoNotifier.toggleTodo(todo);
   }
 
   void _navigateToadd(BuildContext context) {
@@ -56,6 +53,8 @@ class _TodoHomeState extends State<TodoHome> {
 
   @override
   Widget build(BuildContext context) {
+
+    final todoNotifier = Provider.of<TodoNotifier>(context, listen: true);
 
     final List<String> menuItems = ['all', 'done', 'undone'];
 
@@ -78,7 +77,9 @@ class _TodoHomeState extends State<TodoHome> {
         actions: [
             PopupMenuButton<String>(
               onSelected: (String selectedItem) {
-                print('Selected: $selectedItem');
+                setState(() {
+                  todoFilter = selectedItem;
+                });
               },
               itemBuilder: (BuildContext context) {
                 return menuItems.map((String item) {
@@ -92,13 +93,13 @@ class _TodoHomeState extends State<TodoHome> {
             ),
           ],
       ),
-
+      
       body: Stack(
         children: [
-          ListView(
-            padding: EdgeInsets.only(bottom: 80),
-            children: todos.map((todo) => _todoItem(todo)).toList(),
-          ),
+            ListView(
+              padding: EdgeInsets.only(bottom: 80),
+              children: filteredTodos().map((todo) => _todoItem(todo)).toList(),
+            ),
 
           Positioned(
             bottom: 0,
@@ -116,12 +117,6 @@ class _TodoHomeState extends State<TodoHome> {
         ],
       ),
     );
-  }
-
-  void toggleTodoState(int index) {
-    setState(() {
-      todos[index].isChecked = !todos[index].isChecked;
-    });
   }
 
   Widget _todoItem(Todo todo) {
@@ -151,7 +146,8 @@ class _TodoHomeState extends State<TodoHome> {
                       activeColor: Colors.green,
                       value: todo.isChecked,
                       onChanged: (newValue) {
-                        toggleTodoState(todos.indexOf(todo));
+                        print("Checkbox onChanged called");
+                        Provider.of<TodoNotifier>(context, listen: false).toggleTodo(todo);
                       },
                     ),
                   ),
@@ -171,6 +167,7 @@ class _TodoHomeState extends State<TodoHome> {
           IconButton(
             icon:Icon(Icons.delete,color: Colors.red,),
             onPressed: () {
+              print("Remove button pressed");
               removeTodo(todo);
             },
           ),
@@ -179,3 +176,4 @@ class _TodoHomeState extends State<TodoHome> {
     );
   }
 }
+
