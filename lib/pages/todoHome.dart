@@ -22,8 +22,9 @@ class _TodoHomeState extends State<TodoHome> {
     } else if (todoFilter == 'undone') {
       return todoNotifier.todos.where((todo) => !todo.isChecked).toList();
     } else {
-      // Default: show all todos
-      return todoNotifier.todos;
+      List<Todo> allTodos = todoNotifier.todos.toList();
+      allTodos.sort((a, b) => a.isChecked ? 1 : -1);
+      return allTodos;
     }
   }
 
@@ -82,27 +83,37 @@ class _TodoHomeState extends State<TodoHome> {
           ],
       ),
       
-      body: Stack(
-        children: [
-            ListView(
-              padding: EdgeInsets.only(bottom: 80),
-              children: filteredTodos().map((todo) => todoItem(context, todo)).toList(),
-            ),
-
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: IconButton(
-              alignment: Alignment.center,
-              iconSize: 80,
-              padding: EdgeInsets.all(0),
-              icon: Icon(Icons.add_circle, color: Colors.orange,),
-              onPressed: () {
-                _navigateToadd(context);
-              },
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color.fromRGBO(255, 152, 0, 1), Color.fromARGB(255, 0, 40, 63)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-        ],
+        ),
+        
+        child: Stack(
+          children: [
+              ListView(
+                padding: EdgeInsets.only(bottom: 80),
+                children: filteredTodos().map((todo) => todoItem(context, todo)).toList(),
+              ),
+      
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: IconButton(
+                alignment: Alignment.center,
+                iconSize: 80,
+                padding: EdgeInsets.all(0),
+                icon: Icon(Icons.add_circle, color: Colors.orange,),
+                onPressed: () {
+                  _navigateToadd(context);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

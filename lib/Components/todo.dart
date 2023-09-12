@@ -43,6 +43,26 @@ class TodoNotifier extends ChangeNotifier {
   void _initializeTodos() {
     _todos.add(Todo(Uuid().v4(), 'one'));
     _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
+    _todos.add(Todo(Uuid().v4(), 'two'));
   }
 } 
 
