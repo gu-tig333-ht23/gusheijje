@@ -8,16 +8,14 @@ class CustomShapeClipper extends CustomClipper<Path> {
     final path = Path();
     final radius = size.width / 10;
 
-    // Draw the rectangle
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
 
-    // Draw the top half-circle cutout
     path.arcTo(
       Rect.fromCircle(center: Offset(size.width / 1.15, 0), radius: radius),
       0,
-      3.14, // 180 degrees
+      3.14,
       false,
     );
 
@@ -37,8 +35,8 @@ class CutoutRectangleWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      width: screenWidth, // You can adjust this width as needed
-      height: 50, // Specify the height
+      width: screenWidth,
+      height: 50,
       child: ClipPath(
         clipper: CustomShapeClipper(),
         child: Container(

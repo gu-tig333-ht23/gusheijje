@@ -30,7 +30,7 @@ class TodoListProvider extends ChangeNotifier {
 
   set todoFilter(String item) {
     _todoFilter = item;
-    notifyListeners(); // Notify listeners when the filter changes
+    notifyListeners();
   }
 
   void addItem(String name) {
@@ -62,13 +62,13 @@ class TodoListProvider extends ChangeNotifier {
       duration: const Duration(milliseconds: 300),
     );
     _items.removeAt(index);
-    notifyListeners(); // Notify listeners that the list has changed
+    notifyListeners();
   }
 
   void toggleTodoCompletion(int index) {
     if (index >= 0 && index < _items.length) {
       _items[index].isChecked = !_items[index].isChecked;
-      notifyListeners(); // Notify listeners that the data has changed
+      notifyListeners();
     }
   }
 }

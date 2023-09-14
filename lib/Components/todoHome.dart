@@ -50,7 +50,7 @@ class TodoApp extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.light_mode), // You can use any icon you prefer
+          icon: Icon(Icons.light_mode),
           onPressed: () {
             context.read<ThemeProvider>().toggleDarkMode();
           },
@@ -127,11 +127,9 @@ class TodoApp extends StatelessWidget {
                                   onDismissed: (direction) {
                                     if (direction ==
                                         DismissDirection.startToEnd) {
-                                      // Swipe from left to right, delete the item
                                       _removeItem(index);
                                     } else if (direction ==
                                         DismissDirection.endToStart) {
-                                      // Swipe from right to left, archive the item
                                       _toggleTodoCompletion(index);
                                     }
                                   },

@@ -7,6 +7,6 @@ class TodoProvider extends ChangeNotifier {
 
   set todoFilter(String filter) {
     _todoFilter = filter;
-    notifyListeners(); // Notify listeners when the filter changes
+    notifyListeners();
   }
 }
