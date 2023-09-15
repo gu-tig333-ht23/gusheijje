@@ -1,3 +1,4 @@
+//classen för todo items
 class Todo {
   final String name;
   bool isChecked;

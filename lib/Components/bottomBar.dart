@@ -1,3 +1,4 @@
+//i denna filen finns koden för remsan som finns i botten av appen
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'ThemeProvider.dart';

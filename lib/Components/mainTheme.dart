@@ -1,3 +1,5 @@
+//denna fillen har Theme data för appen,
+//men den är inte längre nödvändig då den upgiften hanteras av themeProvider.dart
 import 'package:flutter/material.dart';
 
 final ThemeData appTheme = ThemeData(

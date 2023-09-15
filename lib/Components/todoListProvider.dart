@@ -1,3 +1,4 @@
+//Denna filen hanterar todo listan
 import 'package:flutter/material.dart';
 import 'todo.dart';
 
@@ -18,21 +19,22 @@ class TodoListProvider extends ChangeNotifier {
     Todo("Måla om vardagsrummets väggar och köpa färgen")
   ];
 
+  //denna används för att animationerana som sker när
+  //man lägger till en todo eller tar bort en todo
   final GlobalKey<AnimatedListState> _key = GlobalKey();
+  GlobalKey<AnimatedListState> get key => _key;
 
   List<Todo> get items => _items;
 
-  GlobalKey<AnimatedListState> get key => _key;
-
+  //filtret för vad som ska visas i listan
   String _todoFilter = 'all';
-
   String get todoFilter => _todoFilter;
-
   set todoFilter(String item) {
     _todoFilter = item;
     notifyListeners();
   }
 
+  //här läggs todos till i listan och gör en animation
   void addItem(String name) {
     _items.insert(0, Todo(name));
     _key.currentState!.insertItem(
@@ -41,6 +43,7 @@ class TodoListProvider extends ChangeNotifier {
     );
   }
 
+  //här tas en todo bort från listan och kör en animation
   void removeItem(int index) {
     _key.currentState!.removeItem(
       index,
@@ -65,6 +68,7 @@ class TodoListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  //växlar en todo mellan klar och inte klar
   void toggleTodoCompletion(int index) {
     if (index >= 0 && index < _items.length) {
       _items[index].isChecked = !_items[index].isChecked;
