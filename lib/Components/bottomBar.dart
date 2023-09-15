@@ -7,14 +7,14 @@ class CustomShapeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    final radius = size.width / 10;
+    final radius = 39.0;
 
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
 
     path.arcTo(
-      Rect.fromCircle(center: Offset(size.width / 1.15, 0), radius: radius),
+      Rect.fromCircle(center: Offset(size.width - 60, 0), radius: radius),
       0,
       3.14,
       false,

@@ -1,7 +1,6 @@
 //huvudsidan för appen
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'todo.dart';
 import 'AddTodoPage.dart';
 import 'TodoProvider.dart';
 import 'todoListProvider.dart';
@@ -14,6 +13,7 @@ class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey<AnimatedListState> _key = context.watch<TodoListProvider>().key;
+    double screenSize = MediaQuery.of(context).size.width;
 
     void _addItem(String name) {
       Provider.of<TodoListProvider>(context, listen: false).addItem(name);
@@ -187,7 +187,7 @@ class TodoApp extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 8,
-                  right: 11,
+                  left: screenSize - 102.5,
                   child: IconButton(
                     alignment: Alignment.center,
                     iconSize: 85,
