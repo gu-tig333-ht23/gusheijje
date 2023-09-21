@@ -1,7 +1,23 @@
 //classen för todo items
 class Todo {
-  final String name;
-  bool isChecked;
+  String title;
+  String id;
+  bool done;
 
-  Todo(this.name, {this.isChecked = false});
+  Todo({
+    required this.title,
+    required this.id,
+    required this.done,
+  });
+
+  factory Todo.fromJson(Map<String, dynamic> json) {
+    return Todo(title: json['title'], id: json['id'], done: json['done']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'done': done,
+    };
+  }
 }

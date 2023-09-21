@@ -1,7 +1,7 @@
 //i denna filen finns koden för remsan som finns i botten av appen
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ThemeProvider.dart';
+import '../Components/theme_provider.dart';
 
 class CustomShapeClipper extends CustomClipper<Path> {
   @override
@@ -30,18 +30,23 @@ class CustomShapeClipper extends CustomClipper<Path> {
   }
 }
 
-class CutoutRectangleWidget extends StatelessWidget {
+class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      width: screenWidth,
-      height: 50,
-      child: ClipPath(
-        clipper: CustomShapeClipper(),
+    return Positioned(
+      bottom: 0,
+      child: Container(
         child: Container(
-          color: context.watch<ThemeProvider>().appBarBgColor,
+          width: screenWidth,
+          height: 50,
+          child: ClipPath(
+            clipper: CustomShapeClipper(),
+            child: Container(
+              color: context.watch<ThemeProvider>().appBarBgColor,
+            ),
+          ),
         ),
       ),
     );

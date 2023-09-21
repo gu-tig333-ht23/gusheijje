@@ -1,11 +1,11 @@
 //Denna filen hanterar sidan för att lägga till en ny todo
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'todoListProvider.dart';
-import 'ThemeProvider.dart';
+import 'todo_list_provider.dart';
+import 'theme_provider.dart';
 
 class AddTodoPage extends StatelessWidget {
-  TextEditingController todoAddTextController = TextEditingController();
+  final TextEditingController todoAddTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class AddTodoPage extends StatelessWidget {
               String newTodo = todoAddTextController.text.trim();
               if (newTodo.isNotEmpty) {
                 Provider.of<TodoListProvider>(context, listen: false)
-                    .addItem(newTodo);
+                    .addTodo(newTodo);
                 Navigator.of(context).pop();
               }
             },
