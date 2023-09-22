@@ -1,4 +1,4 @@
-//i denna filen finns koden för remsan som finns i botten av appen
+//in this file is the code for bar which is at the bottom of the app
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Components/theme_provider.dart';

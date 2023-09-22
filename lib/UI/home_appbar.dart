@@ -1,21 +1,18 @@
+//The appbar for TodoHome
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Components/theme_provider.dart';
 import '../Components/todo_provider.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
-    super.key,
-    required this.menuItems,
-  });
-
-  final List<String> menuItems;
-
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
+    final List<String> menuItems = ['all', 'done', 'undone'];
+
     return AppBar(
       elevation: 0.0,
       backgroundColor: context.watch<ThemeProvider>().appBarBgColor,
@@ -33,7 +30,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: IconButton(
-        icon: Icon(Icons.light_mode),
+        icon: context.read<ThemeProvider>().darkMode
+            ? Icon(
+                Icons.light_mode,
+                color: context.read<ThemeProvider>().mainColor,
+              )
+            : Icon(Icons.dark_mode),
         onPressed: () {
           context.read<ThemeProvider>().toggleDarkMode();
         },

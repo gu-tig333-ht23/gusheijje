@@ -1,3 +1,5 @@
+//This file handles the communication with the api
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'todo.dart';

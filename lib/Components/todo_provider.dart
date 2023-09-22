@@ -1,4 +1,4 @@
-//hanterar filtreingen av todo listan
+//handles the filtering of the todo list
 import 'package:flutter/material.dart';
 
 class TodoProvider extends ChangeNotifier {

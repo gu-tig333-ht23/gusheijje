@@ -1,4 +1,4 @@
-//Denna filen hanterar sidan för att lägga till en ny todo
+//This file manages the page for adding a new task
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'todo_list_provider.dart';

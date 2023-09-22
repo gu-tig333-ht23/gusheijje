@@ -1,4 +1,5 @@
-//classen för todo items
+//the class for todo items
+
 class Todo {
   String title;
   String id;

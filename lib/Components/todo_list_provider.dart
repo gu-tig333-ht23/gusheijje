@@ -1,4 +1,4 @@
-//Denna filen hanterar todo listan
+//This file manages the todo list states
 import 'package:flutter/material.dart';
 import 'todo.dart';
 import 'api.dart' as api;
@@ -25,7 +25,7 @@ class TodoListProvider extends ChangeNotifier {
   }
 
   getList() {
-    _items = api.getListFromAPI();
+    _items = _delayedFuture().then((_) => api.getListFromAPI());
     notifyListeners();
   }
 
@@ -40,11 +40,8 @@ class TodoListProvider extends ChangeNotifier {
   }
 
   void toggleTodoCompletion(Todo todo) {
-    print(todo);
     todo.done = todo.done ? false : true;
-
     api.toggleTodoCompletion(todo);
-    print('toggle');
     notifyListeners();
   }
 }
