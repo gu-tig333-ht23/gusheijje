@@ -23,7 +23,9 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.watch<ThemeProvider>().background,
-      appBar: HomeAppBar(),
+      appBar: HomeAppBar(
+        home: true,
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -66,7 +68,24 @@ class TodoApp extends StatelessWidget {
                   },
                 ),
                 AddButton(context),
-                BottomBar(),
+                BottomBar(
+                  barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
+                  cutRadius: 39,
+                  height: 51,
+                  offSet: 0,
+                ),
+                BottomBar(
+                  barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
+                  cutRadius: 38.0,
+                  height: 51,
+                  offSet: 1,
+                ),
+                BottomBar(
+                  barColor: context.watch<ThemeProvider>().bottomBarColor,
+                  cutRadius: 39.0,
+                  height: 50,
+                  offSet: 0,
+                ),
                 TodoHelp(),
               ],
             )),

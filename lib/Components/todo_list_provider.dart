@@ -20,28 +20,28 @@ class TodoListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _delayedFuture() async {
-    await Future.delayed(Duration(seconds: 2));
+  Future<void> _delayedFuture(time) async {
+    await Future.delayed(Duration(milliseconds: time));
   }
 
   getList() {
-    _items = _delayedFuture().then((_) => api.getListFromAPI());
+    _items = _delayedFuture(2000).then((_) => api.getListFromAPI());
     notifyListeners();
   }
 
   removeItem(String id) {
     _items = api.removeItem(id);
-    notifyListeners();
+    //notifyListeners();
   }
 
   addTodo(String name) {
-    _items = _delayedFuture().then((_) => api.addTodo(name));
+    _items = _delayedFuture(2000).then((_) => api.addTodo(name));
     notifyListeners();
   }
 
   void toggleTodoCompletion(Todo todo) {
     todo.done = todo.done ? false : true;
     api.toggleTodoCompletion(todo);
-    notifyListeners();
+    _delayedFuture(200).then((_) => notifyListeners());
   }
 }

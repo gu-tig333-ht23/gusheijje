@@ -13,21 +13,34 @@ class AddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenSize = MediaQuery.of(context).size.width;
-    return Positioned(
-      bottom: 8,
-      left: screenSize - 102.5,
-      child: IconButton(
-        alignment: Alignment.center,
-        iconSize: 85,
-        padding: EdgeInsets.all(0),
-        icon: Icon(
-          Icons.add_circle,
-          color: context.watch<ThemeProvider>().iconAdd,
+    return Stack(
+      children: [
+        Positioned(
+          bottom: 9.5,
+          left: screenSize - 101.5,
+          child: Icon(
+            Icons.add_circle,
+            size: 83,
+            color: context.watch<ThemeProvider>().bottomBarBorderColor,
+          ),
         ),
-        onPressed: () {
-          _navigateToadd(context);
-        },
-      ),
+        Positioned(
+          bottom: 11,
+          left: screenSize - 100,
+          child: IconButton(
+            alignment: Alignment.center,
+            iconSize: 80,
+            padding: EdgeInsets.all(0),
+            icon: Icon(
+              Icons.add_circle,
+              color: context.watch<ThemeProvider>().iconAdd,
+            ),
+            onPressed: () {
+              _navigateToadd(context);
+            },
+          ),
+        ),
+      ],
     );
   }
 

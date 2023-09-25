@@ -25,9 +25,7 @@ class TodoListViewBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index == itemsLenght) {
           //This is so that the bottombar doesn't hide the last todo
-          return ListTile(
-            title: Text('Dummy Item'),
-          );
+          return ListTile();
         }
 
         String todoFilterA =
