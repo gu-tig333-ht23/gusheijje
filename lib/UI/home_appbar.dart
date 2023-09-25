@@ -75,7 +75,6 @@ class appBarButtonSwitch extends StatelessWidget {
         onSelected: (String selectedItem) {
           Provider.of<TodoProvider>(context, listen: false).todoFilter =
               selectedItem;
-          print(Provider.of<TodoProvider>(context, listen: false).todoFilter);
         },
         itemBuilder: (BuildContext context) {
           return menuItems.map((String item) {

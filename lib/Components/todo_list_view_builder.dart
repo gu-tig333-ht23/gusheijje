@@ -107,7 +107,7 @@ class TodoListViewBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   color: todoItem.done
-                      ? Color.fromARGB(155, 193, 192, 192)
+                      ? Color.fromARGB(255, 138, 138, 138)
                       : context.watch<ThemeProvider>().todoTileTxColor,
                   decoration: todoItem.done
                       ? TextDecoration.lineThrough

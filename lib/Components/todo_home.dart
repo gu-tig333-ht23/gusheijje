@@ -44,8 +44,6 @@ class TodoApp extends StatelessWidget {
               children: [
                 Consumer<TodoProvider>(
                   builder: (context, todoProvider, child) {
-                    print(Provider.of<TodoProvider>(context, listen: false)
-                        .todoFilter);
                     return Consumer<TodoListProvider>(
                       builder: (context, todoListProvider, child) {
                         return FutureBuilder<List<Todo>>(
