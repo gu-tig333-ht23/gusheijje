@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'Components/mainTheme.dart';
 import 'package:provider/provider.dart';
-import 'Components/TodoProvider.dart';
-import 'Components/todoListProvider.dart';
-import 'Components/ThemeProvider.dart';
-import 'Components/todoHome.dart';
+import 'Components/main_theme.dart';
+import 'Components/todo_provider.dart';
+import 'Components/todo_list_provider.dart';
+import 'Components/theme_provider.dart';
+import 'Components/todo_home.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -20,7 +20,7 @@ void main() {
       ),
     ],
     child: MaterialApp(
-      home: const TodoApp(),
+      home: TodoApp(),
       theme: appTheme,
     ),
   ));
