@@ -82,7 +82,7 @@ class TodoListViewBuilder extends StatelessWidget {
           confirmDismiss: (DismissDirection direction) async {
             if (direction == DismissDirection.startToEnd) {
               return true;
-            } else if (direction == DismissDirection.endToStart) {
+            } else {
               Provider.of<TodoListProvider>(context, listen: false)
                   .toggleTodoCompletion(todoItem);
               return false;
