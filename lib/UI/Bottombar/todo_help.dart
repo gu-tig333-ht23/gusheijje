@@ -1,7 +1,7 @@
 //shows instructions on how to use the app
 
 import 'package:flutter/material.dart';
-import '../../Components/theme_provider.dart';
+import '../../Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class TodoHelp extends StatelessWidget {

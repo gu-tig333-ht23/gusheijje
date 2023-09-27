@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'todo.dart';
-import 'todo_provider.dart';
-import 'todo_list_provider.dart';
-import 'theme_provider.dart';
+import '../Providers/todo_filter_provider.dart';
+import '../Providers/todo_list_provider.dart';
+import '../Providers/theme_provider.dart';
 
 class TodoListViewBuilder extends StatelessWidget {
   const TodoListViewBuilder({

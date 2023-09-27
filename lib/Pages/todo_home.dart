@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //Components
-import 'todo_provider.dart';
-import 'todo_list_provider.dart';
-import 'theme_provider.dart';
-import 'todo.dart';
-import 'todo_list_view_builder.dart';
+import '../Providers/todo_filter_provider.dart';
+import '../Providers/todo_list_provider.dart';
+import '../Providers/theme_provider.dart';
+import '../Components/todo.dart';
+import '../Components/todo_list_view_builder.dart';
 
 //UI imports
 import '../UI/Bottombar/bottombar.dart';

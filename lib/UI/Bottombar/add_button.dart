@@ -1,9 +1,9 @@
 //the addbutton
 
 import 'package:flutter/material.dart';
-import '../../Components/theme_provider.dart';
+import '../../Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import '../../Components/add_todo_page.dart';
+import '../../Pages/add_todo_page.dart';
 
 class AddButton extends StatelessWidget {
   final BuildContext context;

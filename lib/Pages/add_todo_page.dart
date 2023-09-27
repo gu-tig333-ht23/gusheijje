@@ -1,8 +1,8 @@
 //This file manages the page for adding a new task
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'todo_list_provider.dart';
-import 'theme_provider.dart';
+import '../Providers/todo_list_provider.dart';
+import '../Providers/theme_provider.dart';
 import '../UI/home_appbar.dart';
 
 class AddTodoPage extends StatelessWidget {

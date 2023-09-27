@@ -1,7 +1,7 @@
 //This file manages the todo list states
 import 'package:flutter/material.dart';
-import 'todo.dart';
-import 'api.dart' as api;
+import '../Components/todo.dart';
+import '../Components/api.dart' as api;
 
 class TodoListProvider extends ChangeNotifier {
   Future<List<Todo>> _items =
