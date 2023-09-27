@@ -43,19 +43,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: appBarButtonSwitch(home: home),
-      actions: [
-        IconButton(
-          icon: context.read<ThemeProvider>().darkMode
-              ? Icon(
-                  Icons.light_mode,
-                  color: context.read<ThemeProvider>().mainColor,
-                )
-              : Icon(Icons.dark_mode),
-          onPressed: () {
-            context.read<ThemeProvider>().toggleDarkMode();
-          },
-        ),
-      ],
     );
   }
 }

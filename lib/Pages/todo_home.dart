@@ -5,18 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //Components
+import '../Components/todo.dart';
+import '../Components/todo_list_view_builder.dart';
+
+//Providers
 import '../Providers/todo_filter_provider.dart';
 import '../Providers/todo_list_provider.dart';
 import '../Providers/theme_provider.dart';
-import '../Components/todo.dart';
-import '../Components/todo_list_view_builder.dart';
 
 //UI imports
 import '../UI/Bottombar/bottombar.dart';
 import '../UI/Bottombar/add_button.dart';
-import '../UI/home_appbar.dart';
+import '../UI/appbar.dart';
 import '../UI/progress_indicator.dart';
-import '../UI/Bottombar/todo_help.dart';
+import '../UI/Bottombar/Bottombar_buttons.dart';
 
 class TodoApp extends StatelessWidget {
   @override
