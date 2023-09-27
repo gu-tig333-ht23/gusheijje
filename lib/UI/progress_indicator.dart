@@ -12,22 +12,14 @@ class MyProgressIndicator extends StatelessWidget {
       children: [
         // Background color
         Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                context.watch<ThemeProvider>().background,
-                context.watch<ThemeProvider>().backgroundTwo,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
+          color: context.watch<ThemeProvider>().background,
         ),
         Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(),
+              CircularProgressIndicator(
+                  color: context.watch<ThemeProvider>().todoTileColor),
             ],
           ),
         ),

@@ -16,16 +16,7 @@ class AddTodoPage extends StatelessWidget {
         home: false,
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              context.watch<ThemeProvider>().background,
-              context.watch<ThemeProvider>().backgroundTwo,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        color: context.watch<ThemeProvider>().background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -34,10 +25,13 @@ class AddTodoPage extends StatelessWidget {
               color: context.watch<ThemeProvider>().todoTileColor,
               margin: EdgeInsets.all(16.0),
               child: TextField(
-                cursorColor: context.watch<ThemeProvider>().mainColor,
+                style: TextStyle(
+                    color: context.watch<ThemeProvider>().todoTileTxColor),
+                cursorColor: context.watch<ThemeProvider>().todoTileTxColor,
                 controller: todoAddTextController,
                 decoration: InputDecoration(
                   hintText: 'What are you going to do?',
+                  hintStyle: TextStyle(color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         width: 0.0, color: Color.fromARGB(0, 115, 0, 255)),

@@ -12,11 +12,11 @@ import 'todo.dart';
 import 'todo_list_view_builder.dart';
 
 //UI imports
-import '../UI/bottom_bar.dart';
-import '../UI/add_button.dart';
+import '../UI/Bottombar/bottombar.dart';
+import '../UI/Bottombar/add_button.dart';
 import '../UI/home_appbar.dart';
 import '../UI/progress_indicator.dart';
-import '../UI/todo_help.dart';
+import '../UI/Bottombar/todo_help.dart';
 
 class TodoApp extends StatelessWidget {
   @override
@@ -27,16 +27,7 @@ class TodoApp extends StatelessWidget {
         home: true,
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              context.watch<ThemeProvider>().background,
-              context.watch<ThemeProvider>().backgroundTwo,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        color: context.watch<ThemeProvider>().background,
         child: Column(
           children: [
             Expanded(
@@ -69,19 +60,19 @@ class TodoApp extends StatelessWidget {
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
                   cutRadius: 39,
-                  height: 51,
+                  height: 61,
                   offSet: 0,
                 ),
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
                   cutRadius: 38.0,
-                  height: 51,
+                  height: 61,
                   offSet: 1,
                 ),
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarColor,
                   cutRadius: 39.0,
-                  height: 50,
+                  height: 60,
                   offSet: 0,
                 ),
                 TodoHelp(),

@@ -1,7 +1,7 @@
 //shows instructions on how to use the app
 
 import 'package:flutter/material.dart';
-import '../Components/theme_provider.dart';
+import '../../Components/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class TodoHelp extends StatelessWidget {
@@ -12,8 +12,8 @@ class TodoHelp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 0,
-      left: 5,
+      bottom: 10,
+      left: 10,
       child: IconButton(
         onPressed: () {
           showDialog(

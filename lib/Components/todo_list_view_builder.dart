@@ -25,7 +25,9 @@ class TodoListViewBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index == itemsLenght) {
           //This is so that the bottombar doesn't hide the last todo
-          return ListTile();
+          return SizedBox(
+            height: 85,
+          );
         }
 
         String todoFilterA =
@@ -107,7 +109,7 @@ class TodoListViewBuilder extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   color: todoItem.done
-                      ? Color.fromARGB(255, 138, 138, 138)
+                      ? context.watch<ThemeProvider>().todoTileTxColorDone
                       : context.watch<ThemeProvider>().todoTileTxColor,
                   decoration: todoItem.done
                       ? TextDecoration.lineThrough
