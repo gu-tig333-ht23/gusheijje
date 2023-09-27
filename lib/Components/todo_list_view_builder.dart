@@ -31,7 +31,7 @@ class TodoListViewBuilder extends StatelessWidget {
         }
 
         String todoFilterA =
-            Provider.of<TodoProvider>(context, listen: false).todoFilter;
+            Provider.of<TodoFilterProvider>(context, listen: false).todoFilter;
 
         if (items == null || index >= itemsLenght) {
           return SizedBox.shrink();

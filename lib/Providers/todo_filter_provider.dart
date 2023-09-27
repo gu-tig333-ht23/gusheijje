@@ -1,7 +1,7 @@
 //handles the filtering of the todo list
 import 'package:flutter/material.dart';
 
-class TodoProvider extends ChangeNotifier {
+class TodoFilterProvider extends ChangeNotifier {
   String _todoFilter = 'all';
 
   String get todoFilter => _todoFilter;

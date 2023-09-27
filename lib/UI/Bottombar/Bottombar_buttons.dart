@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class TodoHelp extends StatelessWidget {
-  const TodoHelp({
+class BottumBarButtons extends StatelessWidget {
+  const BottumBarButtons({
     super.key,
   });
 

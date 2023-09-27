@@ -35,7 +35,7 @@ class TodoApp extends StatelessWidget {
             Expanded(
                 child: Stack(
               children: [
-                Consumer<TodoProvider>(
+                Consumer<TodoFilterProvider>(
                   builder: (context, todoProvider, child) {
                     return Consumer<TodoListProvider>(
                       builder: (context, todoListProvider, child) {
@@ -77,7 +77,7 @@ class TodoApp extends StatelessWidget {
                   height: 60,
                   offSet: 0,
                 ),
-                TodoHelp(),
+                BottumBarButtons(),
               ],
             )),
           ],

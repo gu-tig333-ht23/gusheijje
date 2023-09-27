@@ -10,7 +10,7 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
-        create: (context) => TodoProvider(),
+        create: (context) => TodoFilterProvider(),
       ),
       ChangeNotifierProvider(
         create: (context) => TodoListProvider(),

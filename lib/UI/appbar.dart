@@ -60,7 +60,7 @@ class appBarButtonSwitch extends StatelessWidget {
     if (home) {
       return PopupMenuButton<String>(
         onSelected: (String selectedItem) {
-          Provider.of<TodoProvider>(context, listen: false).todoFilter =
+          Provider.of<TodoFilterProvider>(context, listen: false).todoFilter =
               selectedItem;
         },
         itemBuilder: (BuildContext context) {
