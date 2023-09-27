@@ -17,8 +17,8 @@ class ThemeProvider extends ChangeNotifier {
 
   //appbar
   Color get appBarBgColor => _darkMode
-      ? Color.fromARGB(255, 139, 0, 203)
-      : const Color.fromARGB(255, 128, 155, 206);
+      ? const Color.fromARGB(255, 139, 0, 203)
+      : Color.fromARGB(255, 204, 96, 254);
 
   Color get appBarTxColor => _darkMode
       ? const Color.fromARGB(255, 255, 255, 255)
@@ -56,7 +56,7 @@ class ThemeProvider extends ChangeNotifier {
 
   Color get bottomBarBorderColor => _darkMode
       ? const Color.fromARGB(255, 255, 255, 255)
-      : const Color.fromARGB(150, 0, 0, 0);
+      : const Color.fromARGB(255, 138, 138, 138);
 
   Color get BottomBarIconColor => _darkMode
       ? const Color.fromARGB(255, 255, 255, 255)

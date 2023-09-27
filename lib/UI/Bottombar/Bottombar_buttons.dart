@@ -73,19 +73,19 @@ class BottumBarButtons extends StatelessWidget {
             },
             icon: Icon(
               Icons.help,
-              color: context.read<ThemeProvider>().BottomBarIconColor,
+              color: context.watch<ThemeProvider>().BottomBarIconColor,
             ),
           ),
           IconButton(
-            icon: context.read<ThemeProvider>().darkMode
+            icon: context.watch<ThemeProvider>().darkMode
                 ? Icon(
                     Icons.light_mode,
-                    color: context.read<ThemeProvider>().BottomBarIconColor,
+                    color: context.watch<ThemeProvider>().BottomBarIconColor,
                   )
                 : Icon(Icons.dark_mode,
-                    color: context.read<ThemeProvider>().BottomBarIconColor),
+                    color: context.watch<ThemeProvider>().BottomBarIconColor),
             onPressed: () {
-              context.read<ThemeProvider>().toggleDarkMode();
+              context.watch<ThemeProvider>().toggleDarkMode();
             },
           ),
         ],

@@ -98,16 +98,16 @@ class TodoListViewBuilder extends StatelessWidget {
                   ? Icon(
                       Icons.done,
                       color: Colors.green,
-                      size: 40.0,
+                      size: 28.0,
                     )
                   : Icon(
                       Icons.done,
-                      color: context.read<ThemeProvider>().todoTileColor,
+                      color: context.watch<ThemeProvider>().todoTileColor,
                     ),
               title: Text(
                 todoItem.title,
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   color: todoItem.done
                       ? context.watch<ThemeProvider>().todoTileTxColorDone
                       : context.watch<ThemeProvider>().todoTileTxColor,
