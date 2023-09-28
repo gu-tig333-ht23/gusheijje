@@ -1,9 +1,9 @@
 //This file manages the page for adding a new task
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'todo_list_provider.dart';
-import 'theme_provider.dart';
-import '../UI/home_appbar.dart';
+import '../Providers/todo_list_provider.dart';
+import '../Providers/theme_provider.dart';
+import '../UI/appbar.dart';
 
 class AddTodoPage extends StatelessWidget {
   final TextEditingController todoAddTextController = TextEditingController();
@@ -16,16 +16,7 @@ class AddTodoPage extends StatelessWidget {
         home: false,
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              context.watch<ThemeProvider>().background,
-              context.watch<ThemeProvider>().backgroundTwo,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        color: context.watch<ThemeProvider>().background,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -34,10 +25,13 @@ class AddTodoPage extends StatelessWidget {
               color: context.watch<ThemeProvider>().todoTileColor,
               margin: EdgeInsets.all(16.0),
               child: TextField(
-                cursorColor: context.watch<ThemeProvider>().mainColor,
+                style: TextStyle(
+                    color: context.watch<ThemeProvider>().todoTileTxColor),
+                cursorColor: context.watch<ThemeProvider>().todoTileTxColor,
                 controller: todoAddTextController,
                 decoration: InputDecoration(
                   hintText: 'What are you going to do?',
+                  hintStyle: TextStyle(color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         width: 0.0, color: Color.fromARGB(0, 115, 0, 255)),

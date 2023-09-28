@@ -12,16 +12,15 @@ Future<List<Todo>> getListFromAPI() async {
       Uri.parse('$url/todos?key=97d91d24-f09e-4664-90d7-3dcb3746dca0'),
     );
     if (response.statusCode == 200) {
-      print('Got todos successfully. Response: ${response.body}');
       return updateList(response);
     } else {
       print('Failed to get todos. Error: ${response.statusCode}');
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -35,17 +34,16 @@ Future<List<Todo>> removeItem(String id) async {
       Uri.parse(url),
     );
     if (response.statusCode == 200) {
-      print('deleted todo successfully. Response: ${response.body}');
       return updateList(response);
     } else {
       print('Failed to delete todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -66,18 +64,16 @@ Future<List<Todo>> addTodo(String name) async {
       body: todoJson,
     );
     if (response.statusCode == 200) {
-      print('Added todo successfully. Response: ${response.body}');
-
       return updateList(response);
     } else {
       print('Failed to add todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -99,17 +95,16 @@ Future<List<Todo>> toggleTodoCompletion(Todo todo) async {
       body: todoToToggle,
     );
     if (response.statusCode == 200) {
-      print('toggled todo successfully. Response: ${response.body}');
       return updateList(response);
     } else {
       print('Failed to toggle todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 

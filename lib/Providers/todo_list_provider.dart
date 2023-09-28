@@ -1,7 +1,7 @@
 //This file manages the todo list states
 import 'package:flutter/material.dart';
-import 'todo.dart';
-import 'api.dart' as api;
+import '../Components/todo.dart';
+import '../Components/api.dart' as api;
 
 class TodoListProvider extends ChangeNotifier {
   Future<List<Todo>> _items =
@@ -29,9 +29,13 @@ class TodoListProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  removeItem(String id) {
-    _items = api.removeItem(id);
-    //notifyListeners();
+  removeItem(String id) async {
+    List<Todo> items = await api.removeItem(id);
+    _items = Future.value(items);
+    if (items[0].id == 'error') {
+      print(items[0].id);
+      notifyListeners();
+    } else {}
   }
 
   addTodo(String name) {
@@ -42,6 +46,6 @@ class TodoListProvider extends ChangeNotifier {
   void toggleTodoCompletion(Todo todo) {
     todo.done = todo.done ? false : true;
     api.toggleTodoCompletion(todo);
-    _delayedFuture(200).then((_) => notifyListeners());
+    _delayedFuture(300).then((_) => notifyListeners());
   }
 }

@@ -8,7 +8,7 @@ class ThemeProvider extends ChangeNotifier {
 
   //general
   Color get mainColor => _darkMode
-      ? const Color.fromARGB(255, 187, 134, 252)
+      ? const Color.fromARGB(255, 255, 255, 255)
       : const Color.fromARGB(255, 255, 255, 255);
 
   Color get iconAdd => _darkMode
@@ -17,30 +17,32 @@ class ThemeProvider extends ChangeNotifier {
 
   //appbar
   Color get appBarBgColor => _darkMode
-      ? const Color.fromARGB(255, 30, 30, 30)
-      : const Color.fromARGB(255, 128, 155, 206);
+      ? const Color.fromARGB(255, 139, 0, 203)
+      : Color.fromARGB(255, 204, 96, 254);
 
   Color get appBarTxColor => _darkMode
-      ? const Color.fromARGB(255, 187, 134, 252)
+      ? const Color.fromARGB(255, 255, 255, 255)
       : const Color.fromRGBO(255, 255, 255, 1);
 
   //backgrund
   Color get background => _darkMode
-      ? const Color.fromARGB(255, 17, 17, 17)
-      : const Color.fromARGB(255, 149, 184, 209);
+      ? const Color.fromARGB(255, 0, 0, 0)
+      : const Color.fromARGB(255, 240, 242, 245);
 
   Color get backgroundTwo => _darkMode
       ? const Color.fromARGB(255, 81, 81, 81)
       : const Color.fromRGBO(255, 255, 255, 1);
 
-  //todo listan
+  //todolist
   Color get todoTileColor => _darkMode
-      ? const Color.fromARGB(255, 46, 46, 46)
-      : const Color.fromARGB(255, 255, 192, 0);
+      ? const Color.fromARGB(255, 30, 30, 30)
+      : const Color.fromARGB(255, 255, 255, 255);
 
   Color get todoTileTxColor => _darkMode
       ? const Color.fromRGBO(255, 255, 255, 1)
-      : const Color.fromRGBO(255, 255, 255, 1);
+      : const Color.fromARGB(255, 0, 0, 0);
+
+  Color get todoTileTxColorDone => const Color.fromARGB(255, 138, 138, 138);
 
   //checkBox
   Color get checkBoxBorderColor => _darkMode
@@ -49,12 +51,16 @@ class ThemeProvider extends ChangeNotifier {
 
   //BottomBar
   Color get bottomBarColor => _darkMode
-      ? const Color.fromARGB(255, 30, 30, 30)
-      : const Color.fromARGB(255, 128, 155, 206);
+      ? const Color.fromARGB(255, 0, 0, 0)
+      : const Color.fromARGB(255, 240, 242, 245);
 
   Color get bottomBarBorderColor => _darkMode
       ? const Color.fromARGB(255, 255, 255, 255)
-      : const Color.fromARGB(150, 0, 0, 0);
+      : const Color.fromARGB(255, 138, 138, 138);
+
+  Color get BottomBarIconColor => _darkMode
+      ? const Color.fromARGB(255, 255, 255, 255)
+      : const Color.fromARGB(255, 138, 138, 138);
 
   //Here is the toggle to switch between dark mode and light mode
   void toggleDarkMode() {

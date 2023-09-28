@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../Components/theme_provider.dart';
-import '../Components/todo_provider.dart';
+import '../Providers/theme_provider.dart';
+import '../Providers/todo_filter_provider.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -43,19 +43,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: appBarButtonSwitch(home: home),
-      actions: [
-        IconButton(
-          icon: context.read<ThemeProvider>().darkMode
-              ? Icon(
-                  Icons.light_mode,
-                  color: context.read<ThemeProvider>().mainColor,
-                )
-              : Icon(Icons.dark_mode),
-          onPressed: () {
-            context.read<ThemeProvider>().toggleDarkMode();
-          },
-        ),
-      ],
     );
   }
 }
@@ -73,9 +60,8 @@ class appBarButtonSwitch extends StatelessWidget {
     if (home) {
       return PopupMenuButton<String>(
         onSelected: (String selectedItem) {
-          Provider.of<TodoProvider>(context, listen: false).todoFilter =
+          Provider.of<TodoFilterProvider>(context, listen: false).todoFilter =
               selectedItem;
-          print(Provider.of<TodoProvider>(context, listen: false).todoFilter);
         },
         itemBuilder: (BuildContext context) {
           return menuItems.map((String item) {

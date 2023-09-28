@@ -5,18 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //Components
-import 'todo_provider.dart';
-import 'todo_list_provider.dart';
-import 'theme_provider.dart';
-import 'todo.dart';
-import 'todo_list_view_builder.dart';
+import '../Components/todo.dart';
+import '../Components/todo_list_view_builder.dart';
+
+//Providers
+import '../Providers/todo_filter_provider.dart';
+import '../Providers/todo_list_provider.dart';
+import '../Providers/theme_provider.dart';
 
 //UI imports
-import '../UI/bottom_bar.dart';
-import '../UI/add_button.dart';
-import '../UI/home_appbar.dart';
+import '../UI/Bottombar/bottombar.dart';
+import '../UI/Bottombar/add_button.dart';
+import '../UI/appbar.dart';
 import '../UI/progress_indicator.dart';
-import '../UI/todo_help.dart';
+import '../UI/Bottombar/Bottombar_buttons.dart';
 
 class TodoApp extends StatelessWidget {
   @override
@@ -27,25 +29,14 @@ class TodoApp extends StatelessWidget {
         home: true,
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              context.watch<ThemeProvider>().background,
-              context.watch<ThemeProvider>().backgroundTwo,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        color: context.watch<ThemeProvider>().background,
         child: Column(
           children: [
             Expanded(
                 child: Stack(
               children: [
-                Consumer<TodoProvider>(
+                Consumer<TodoFilterProvider>(
                   builder: (context, todoProvider, child) {
-                    print(Provider.of<TodoProvider>(context, listen: false)
-                        .todoFilter);
                     return Consumer<TodoListProvider>(
                       builder: (context, todoListProvider, child) {
                         return FutureBuilder<List<Todo>>(
@@ -58,8 +49,13 @@ class TodoApp extends StatelessWidget {
                               return Text('Error: ${snapshot.error}');
                             } else {
                               final items = snapshot.data;
-
-                              return TodoListViewBuilder(items: items);
+                              if (items != null &&
+                                  items.isNotEmpty &&
+                                  items[0].id == 'error') {
+                                return Text('Error: ${items[0].title}');
+                              } else {
+                                return TodoListViewBuilder(items: items);
+                              }
                             }
                           },
                         );
@@ -71,22 +67,22 @@ class TodoApp extends StatelessWidget {
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
                   cutRadius: 39,
-                  height: 51,
+                  height: 61,
                   offSet: 0,
                 ),
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarBorderColor,
                   cutRadius: 38.0,
-                  height: 51,
+                  height: 61,
                   offSet: 1,
                 ),
                 BottomBar(
                   barColor: context.watch<ThemeProvider>().bottomBarColor,
                   cutRadius: 39.0,
-                  height: 50,
+                  height: 60,
                   offSet: 0,
                 ),
-                TodoHelp(),
+                BottumBarButtons(),
               ],
             )),
           ],
