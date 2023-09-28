@@ -1,6 +1,7 @@
 //shows instructions on how to use the app
 
 import 'package:flutter/material.dart';
+import 'package:test1/Providers/todo_list_provider.dart';
 import '../../Providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -88,6 +89,11 @@ class BottumBarButtons extends StatelessWidget {
               context.read<ThemeProvider>().toggleDarkMode();
             },
           ),
+          IconButton(
+              onPressed: () {
+                context.read<TodoListProvider>().getList();
+              },
+              icon: Icon(Icons.refresh))
         ],
       ),
     );

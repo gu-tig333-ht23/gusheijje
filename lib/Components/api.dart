@@ -15,12 +15,12 @@ Future<List<Todo>> getListFromAPI() async {
       return updateList(response);
     } else {
       print('Failed to get todos. Error: ${response.statusCode}');
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -38,12 +38,12 @@ Future<List<Todo>> removeItem(String id) async {
     } else {
       print('Failed to delete todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -68,12 +68,12 @@ Future<List<Todo>> addTodo(String name) async {
     } else {
       print('Failed to add todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 
@@ -99,12 +99,12 @@ Future<List<Todo>> toggleTodoCompletion(Todo todo) async {
     } else {
       print('Failed to toggle todo. Error: ${response.statusCode}');
 
-      return [];
+      return [Todo(title: '${response.statusCode}', id: 'error', done: false)];
     }
   } catch (error) {
     print('Error: $error');
 
-    return [];
+    return [Todo(title: '$error', id: 'error', done: false)];
   }
 }
 

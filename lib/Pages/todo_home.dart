@@ -49,8 +49,13 @@ class TodoApp extends StatelessWidget {
                               return Text('Error: ${snapshot.error}');
                             } else {
                               final items = snapshot.data;
-
-                              return TodoListViewBuilder(items: items);
+                              if (items != null &&
+                                  items.isNotEmpty &&
+                                  items[0].id == 'error') {
+                                return Text('Error: ${items[0].title}');
+                              } else {
+                                return TodoListViewBuilder(items: items);
+                              }
                             }
                           },
                         );
