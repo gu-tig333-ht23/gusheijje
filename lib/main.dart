@@ -20,7 +20,7 @@ void main() {
       ),
     ],
     child: MaterialApp(
-      home: TodoApp(),
+      home: TodoHome(),
       theme: appTheme,
     ),
   ));

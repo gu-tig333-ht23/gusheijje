@@ -16,11 +16,11 @@ import '../Providers/theme_provider.dart';
 //UI imports
 import '../UI/Bottombar/bottombar.dart';
 import '../UI/Bottombar/add_button.dart';
-import '../UI/appbar.dart';
-import '../UI/progress_indicator.dart';
+import '../UI/home_appbar.dart';
+import '../UI/my_progress_indicator.dart';
 import '../UI/Bottombar/Bottombar_buttons.dart';
 
-class TodoApp extends StatelessWidget {
+class TodoHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
