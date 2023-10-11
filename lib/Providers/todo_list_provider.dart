@@ -25,7 +25,7 @@ class TodoListProvider extends ChangeNotifier {
   }
 
   getList() {
-    _items = _delayedFuture(2000).then((_) => api.getListFromAPI());
+    _items = _delayedFuture(0).then((_) => api.getListFromAPI());
     notifyListeners();
   }
 
@@ -39,13 +39,23 @@ class TodoListProvider extends ChangeNotifier {
   }
 
   addTodo(String name) {
-    _items = _delayedFuture(2000).then((_) => api.addTodo(name));
+    _items = _delayedFuture(0).then((_) => api.addTodo(name));
     notifyListeners();
   }
 
-  void toggleTodoCompletion(Todo todo) {
+  void toggleTodoCompletion(Todo todo) async {
+    final startTid = DateTime.now();
     todo.done = todo.done ? false : true;
-    api.toggleTodoCompletion(todo);
-    _delayedFuture(300).then((_) => notifyListeners());
+    await api.toggleTodoCompletion(todo);
+    final slutTid = DateTime.now();
+    final totalTid = slutTid.difference(startTid);
+
+    if (totalTid < Duration(milliseconds: 300)) {
+      final remainingDelay =
+          (Duration(milliseconds: 300) - totalTid).inMilliseconds;
+      _delayedFuture(remainingDelay).then((_) => notifyListeners());
+    } else {
+      notifyListeners();
+    }
   }
 }

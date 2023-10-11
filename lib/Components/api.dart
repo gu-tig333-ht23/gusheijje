@@ -9,7 +9,7 @@ Future<List<Todo>> getListFromAPI() async {
 
   try {
     final response = await http.get(
-      Uri.parse('$url/todos?key=97d91d24-f09e-4664-90d7-3dcb3746dca0'),
+      Uri.parse('$url/todos?key=379fd65d-c1ab-4869-9a0b-ccdf076c4119'),
     );
     if (response.statusCode == 200) {
       return updateList(response);
@@ -26,7 +26,7 @@ Future<List<Todo>> getListFromAPI() async {
 
 Future<List<Todo>> removeItem(String id) async {
   final url =
-      'https://todoapp-api.apps.k8s.gu.se/todos/$id?key=97d91d24-f09e-4664-90d7-3dcb3746dca0';
+      'https://todoapp-api.apps.k8s.gu.se/todos/$id?key=379fd65d-c1ab-4869-9a0b-ccdf076c4119';
 
   try {
     print(id);
@@ -53,7 +53,7 @@ Future<List<Todo>> addTodo(String name) async {
   };
 
   final url =
-      'https://todoapp-api.apps.k8s.gu.se/todos?key=97d91d24-f09e-4664-90d7-3dcb3746dca0';
+      'https://todoapp-api.apps.k8s.gu.se/todos?key=379fd65d-c1ab-4869-9a0b-ccdf076c4119';
   final headers = {'Content-Type': 'application/json'};
   final todoJson = jsonEncode(todo);
 
@@ -81,7 +81,7 @@ Future<List<Todo>> toggleTodoCompletion(Todo todo) async {
   final id = todo.id;
 
   final url =
-      'https://todoapp-api.apps.k8s.gu.se/todos/$id?key=97d91d24-f09e-4664-90d7-3dcb3746dca0';
+      'https://todoapp-api.apps.k8s.gu.se/todos/$id?key=379fd65d-c1ab-4869-9a0b-ccdf076c4119';
   final headers = {'Content-Type': 'application/json'};
   final todoToToggle = jsonEncode({
     'title': todo.title,
